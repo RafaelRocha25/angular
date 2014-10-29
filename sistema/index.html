@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="pessoas">
+	<head>
+		<title>Pessoas</title>
+    </head>
+	<body>
+		
+		<input type="search" placeholder="Busca" ng-model="busca" />
+
+		<div ng-controller="CtrlPessoas">
+			<h1>Sistema de gerenciamento de pesspas</h1>
+			<div ng-view></div>			
+			
+		</div>
+	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.js"></script>
+	<script src="pessoas.js"></script>		
+	
+</html>
+

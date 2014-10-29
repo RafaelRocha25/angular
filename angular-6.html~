@@ -1,0 +1,62 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+		<script>
+   		var myApp = angular.module('myApp',[]); 		
+	 		
+    		myApp.controller('CtrlApp', function($scope) {
+				$scope.pessoas = [
+					{nome: "Lenine", cidade: "Madalena"},					
+					{nome: "Rafael", cidade: "Fortaleza"},
+					{nome: "Felipe", cidade: "Fortaleza"}
+				];
+				
+				$scope.adicionar = function() {
+					if($scope.vNome && $scope.vCidade) {					
+						$scope.pessoas.push({
+							nome: $scope.vNome,
+							cidade: $scope.vCidade					
+						});
+					} else {
+						alert("Todos os campos obrigatórios!");
+					}
+					$scope.vNome = "";
+					$scope.vCidade = "";
+				};	
+				
+				$scope.remover = function (index) {
+					$scope.pessoas.splice(index, 1);
+				};		
+				
+				$scope.loggar = function() {
+					cosole.log($scope.vNome);
+				};	
+				
+    		});
+
+    	</script>
+    </head>
+	<body>
+	
+	<h2>Todo</h2>
+	
+	<div ng-controller="CtrlApp">
+		Busca: <input type="search" ng-model="busca" />		
+		
+		<div>Total: <b>{{pessoas.length}}</b></div>		
+		
+		<ul ng-repeat="pessoa in pessoas | filter:busca">
+			<li>{{pessoa.nome}}, {{pessoa.cidade}} <button ng-click="remover($index)">x</button></li>		
+		</ul>
+		
+		Nome: <input type="text" ng-model="vNome" ng-change="loggar()" /><br />
+		Cidade: <input type="text" ng-model="vCidade" /><br />		
+
+		<button ng-click="adicionar()">Adicionar a lista</button>
+		
+	</div>
+	
+	</body>
+</html>
+

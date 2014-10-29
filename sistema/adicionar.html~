@@ -1,0 +1,8 @@
+<h2>Adicionar pessoa</h2>
+
+Nome: <input type="text" ng-model="pessoa.nome" /><br />
+Cidade: <input type="text" ng-model="pessoa.cidade" /><br />
+
+<button ng-click="add()"> Salvsar</button>
+<br />
+<a href="#/">Voltar</a>
